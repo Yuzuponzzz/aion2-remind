@@ -3,3 +3,4 @@
 〇導入方法〇 ご自身のリポジトリにフォーク後、Settingタブから任意のチャンネルのWebHookURLを登録してください。 正常に登録できているか確認したい場合はActionsタブからテスト通知が送信できます。
 
 〇その他〇 改良、使用、再配布はすべてご自由に行っていただいて構いません。 その他不明な点はDiscode→tanpopo_12345までご連絡ください
+<img width="658" height="292" alt="image" src="https://github.com/user-attachments/assets/cca3b7c9-0d65-43fb-9e04-52e1e380ebc3" />

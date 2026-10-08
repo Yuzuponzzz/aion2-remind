@@ -40,19 +40,19 @@ jobs:
           python-version: "3.12"
 
       - name: Send Discord test message
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.send_test }}
+        if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.send_test) }}
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python aion2_remind.py --test
 
       - name: Check AION2 news
-        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.send_test) }}
+        if: ${{ github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && inputs.send_test) }}
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python aion2_remind.py
 
       - name: Save article history
-        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.send_test) }}
+        if: ${{ github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && inputs.send_test) }}
         run: |
           if [ -f seen.json ]; then
             git config user.name "AION2 Remind Bot"

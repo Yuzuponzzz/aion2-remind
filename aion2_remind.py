@@ -280,7 +280,11 @@ def post_discord(item):
     req = urllib.request.Request(
         WEBHOOK_URL,
         data=data,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "AION2-Remind/1.0",
+            "Accept": "application/json",
+        },
         method="POST",
     )
 

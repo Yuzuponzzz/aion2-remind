@@ -9,6 +9,13 @@ on:
         default: false
         type: boolean
 
+  push:
+    branches:
+      - main
+    paths:
+      - "aion2_remind.py"
+      - ".github/workflows/aion2-remind.yml"
+
   schedule:
     - cron: "*/10 * * * *"
 
